@@ -1,0 +1,260 @@
+{
+  "person": {
+    "name": "Yuvan Pramesh Selvarangam",
+    "handle": "awildweirdo",
+    "location": "Chennai, India",
+    "email": "yuvanp2005@gmail.com",
+    "phone": "+91 9791161024",
+    "phonePublic": false,
+    "links": {
+      "github": "https://github.com/awildweirdo",
+      "githubSecondary": "https://github.com/yuvanps",
+      "linkedin": "https://www.linkedin.com/in/yuvan-pramesh"
+    },
+    "headline": "Electronics & Communication Engineering student building embedded systems, custom PCBs and C/C++ software",
+    "summary": "B.Tech ECE student at VIT (2023-2027, CGPA 8.74) working across embedded firmware, PCB design, robotics and systems software. Primary language is C/C++. Interests: embedded systems, cybersecurity, telecommunications/6G, and shipping complete hardware-software products.",
+    "interests": ["Embedded systems", "C/C++ systems programming", "Cybersecurity", "Telecommunications / 6G", "Robotics", "PCB design", "TinyML"]
+  },
+  "education": [
+    {
+      "institution": "Vellore Institute of Technology, Chennai",
+      "degree": "B.Tech, Electronics and Communication Engineering",
+      "start": "2023-07",
+      "end": "2027-05",
+      "cgpa": "8.74/10",
+      "coursework": [
+        "Computer Communications & Networks",
+        "Advanced Cloud Computing",
+        "Structured & Object-Oriented Programming",
+        "Artificial Intelligence & Machine Learning",
+        "Microprocessors & Microcontrollers"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "company": "Towardz Solutions",
+      "role": "Intern",
+      "start": "2026-05",
+      "end": "2026-07",
+      "summary": "Bioprinter prototype: electronics, pneumatics and firmware.",
+      "highlights": [
+        "Developed electronic and pneumatic control systems for a bioprinter prototype, improving printing accuracy by 50%.",
+        "Customized the open-source Klipper firmware to support 5+ bioprinting-specific functions, integrating 4 hardware components and reducing manual control requirements by 25%.",
+        "Performed system integration, testing, calibration and troubleshooting across 50+ test cycles, achieving 80% system reliability."
+      ],
+      "tech": ["Klipper", "Linux", "Embedded control", "Pneumatics"]
+    }
+  ],
+  "projects": [
+    {
+      "slug": "ticket-booking-system",
+      "title": "Ticket Booking System",
+      "type": "Personal project",
+      "featured": true,
+      "tech": ["C++17", "Crow", "SQLite", "OpenSSL", "Docker", "REST API"],
+      "description": "Full-stack ticket booking platform written in C++17 with a REST API and SQLite database.",
+      "highlights": [
+        "Real-time seat holds, booking confirmation and waitlist cascading.",
+        "Hand-rolled JWT (HS256) authentication via OpenSSL, salted SHA-256 password hashing, and hashed tamper-proof waitlist tokens.",
+        "Role-based access control for Admin, Organiser and Customer roles.",
+        "10-table relational schema; atomic transactions (SQLite WAL mode) to prevent double-booking race conditions.",
+        "Containerised with Docker and deployed to Render; 4 automated test suites."
+      ],
+      "links": { "repo": "https://github.com/yuvanps/TicketBookingSystem" },
+      "repoVisibility": "check before publishing"
+    },
+    {
+      "slug": "nexcook-meal-maker",
+      "title": "Fully Automated Meal Maker (Nexcook)",
+      "type": "Client consultancy project for Mitatronics, Mumbai",
+      "start": "2025-03",
+      "end": "present",
+      "featured": true,
+      "tech": ["ESP32-S3", "FreeRTOS", "LVGL 8.3.11", "SquareLine Studio", "Altium Designer", "I2C"],
+      "description": "Commercial cooking automation system developed as part of a consultancy engagement.",
+      "highlights": [
+        "Multi-core ESP32 control system on FreeRTOS enabling real-time parallel execution of independent kitchen modules.",
+        "Custom PCBs designed and validated in Altium Designer: schematic capture, layout, DRC, component selection and prototype bring-up.",
+        "LVGL touchscreen HMI with I2C-connected sensors and actuators for recipe execution, monitoring and safety control.",
+        "Integrated firmware, custom electronics and electromechanical subsystems with mechanical and electrical teams."
+      ],
+      "links": {},
+      "repoVisibility": "private repos (Nexcook_ESP32, Nexcook_externESPcoded, Nexcook_UI_ESP32_LVGL_SLS, Nexcook_GravyMaker) - do not link"
+    },
+    {
+      "slug": "stepper-driver-pcb",
+      "title": "4-Channel TB6600HG Stepper Driver PCB",
+      "type": "Hardware design (part of the cooking automation system)",
+      "tech": ["Altium Designer", "TB6600HG"],
+      "description": "100x80mm driver board for the cooking machine with channels for Onion, Tomato, Chopper and Grinder Base.",
+      "highlights": [
+        "Layer strategy, DRC rules with HighCurrent and Digital net classes, and copper pour planning.",
+        "Star-point LGND/PGND grounding to isolate noise-sensitive digital signals from motor current."
+      ],
+      "links": {}
+    },
+    {
+      "slug": "esp32-s3-carrier-board",
+      "title": "Custom ESP32-S3 Carrier Board",
+      "type": "Personal hardware project",
+      "featured": true,
+      "tech": ["Altium Designer", "ESP32-S3", "FTDI", "USB-C"],
+      "description": "4-layer high-speed PCB integrating ESP32, FTDI and dual USB-C interfaces.",
+      "highlights": [
+        "Differential-pair routing and power distribution tuned for signal integrity and EMI performance.",
+        "Multilayer ground and power plane management with stitching vias and impedance-controlled traces."
+      ],
+      "links": { "repo": "https://github.com/awildweirdo/Custom_ESP32-S3_CarrierBoard_PCB" },
+      "repoVisibility": "public"
+    },
+    {
+      "slug": "factory-patrol-drone",
+      "title": "Autonomous Factory Patrol Drone",
+      "type": "Personal project",
+      "start": "2026-07",
+      "end": "present",
+      "featured": true,
+      "tech": ["PX4", "Gazebo", "ROS 2", "STM32"],
+      "description": "Compact autonomous drone concept for indoor factory surveillance and patrol.",
+      "highlights": [
+        "Mission planning and patrol trajectories simulated with PX4 SITL, Gazebo and ROS 2 on a custom factory world for the x500 quadrotor.",
+        "STM32 companion controller architecture for high-level mission control and flight-controller communication.",
+        "Waypoint navigation and emergency handling workflow.",
+        "Debugged missing IMU plugin and magnetometer mismatch (spherical coordinates block); investigating height-estimate stability under real-time-factor degradation."
+      ],
+      "links": {}
+    },
+    {
+      "slug": "tinyml-keyword-spotting",
+      "title": "TinyML Keyword Spotting",
+      "type": "Personal project",
+      "tech": ["ESP32-S3", "TensorFlow Lite Micro", "CNN", "INT8 quantization"],
+      "description": "CNN trained and INT8-quantized for on-device keyword spotting on an ESP32-S3.",
+      "highlights": [],
+      "links": {},
+      "note": "Repo not visible in the GitHub listing provided. Ask Yuvan for details/link before writing more than the one-line description."
+    },
+    {
+      "slug": "cellular-network-simulation",
+      "title": "Cellular Network Simulation & Analysis",
+      "type": "Academic / personal",
+      "tech": ["ns-3", "MATLAB"],
+      "description": "LTE scheduler comparison and cellular frequency-reuse analysis.",
+      "highlights": [
+        "ns-3 LTE simulations comparing Round Robin, Proportional Fair and Max Throughput schedulers using Jain's Fairness Index.",
+        "MATLAB SIR table generation for cellular frequency-reuse analysis."
+      ],
+      "links": {}
+    },
+    {
+      "slug": "bio-3d-printer",
+      "title": "Pneumatic Bio 3D Printer",
+      "type": "Hardware build",
+      "tech": ["Klipper", "Raspberry Pi 3B+", "BTT SKR v1.4", "Solenoid valve"],
+      "description": "Pneumatic bio-printer dispensing calcium-based bio-ink through a solenoid valve on the FAN0 header.",
+      "highlights": [
+        "Full Klipper config with a dummy extruder (resistor workaround) and TRAVEL / PRINT_LINE macros for solenoid logic.",
+        "Planned calibration pipeline ahead of first tissue prints."
+      ],
+      "links": {},
+      "note": "Closely related to the Towardz internship work. Confirm with Yuvan whether to present as a separate project or merge into the internship entry."
+    },
+    {
+      "slug": "chocogenie",
+      "title": "ChocoGenie",
+      "type": "Personal project",
+      "tech": ["C", "C++", "LVGL", "Raspberry Pi"],
+      "description": "Gamified vending machine UI built with LVGL on a Raspberry Pi.",
+      "highlights": [
+        "Debugged PNG asset loading by registering the missing PNG decoder (lv_png_init and lv_conf.h configuration)."
+      ],
+      "links": {},
+      "repoVisibility": "private - do not link"
+    },
+    {
+      "slug": "spectral-subtraction-matlab",
+      "title": "Spectral Subtraction (MATLAB)",
+      "type": "Signal processing",
+      "tech": ["MATLAB"],
+      "description": "MATLAB implementation of the spectral subtraction noise-reduction method.",
+      "highlights": [],
+      "links": { "repo": "https://github.com/awildweirdo/Spectral_subtraction_matlab" },
+      "repoVisibility": "public"
+    },
+    {
+      "slug": "generator-issue-detector",
+      "title": "Generator Issue Detector (ESP32 + Harmonic Analysis)",
+      "type": "Personal project",
+      "tech": ["ESP32", "Python", "Harmonic analysis"],
+      "description": "Detects generator issues using harmonic analysis on ESP32 data.",
+      "highlights": [],
+      "links": { "repo": "https://github.com/awildweirdo/Generator-issue-detector_ESp32_harmonic-analysis" },
+      "repoVisibility": "public"
+    },
+    {
+      "slug": "arduino-fm-radio",
+      "title": "Arduino FM Radio",
+      "type": "Personal project",
+      "tech": ["Arduino", "C++"],
+      "description": "FM radio built on Arduino.",
+      "highlights": [],
+      "links": { "repo": "https://github.com/awildweirdo/Arduino_FM_Radio" },
+      "repoVisibility": "public"
+    },
+    {
+      "slug": "my-bot",
+      "title": "my_bot",
+      "type": "Personal project",
+      "tech": ["Python"],
+      "description": "Python bot project (Apache 2.0 licensed).",
+      "highlights": [],
+      "links": { "repo": "https://github.com/awildweirdo/my_bot" },
+      "repoVisibility": "public"
+    }
+  ],
+  "skills": {
+    "Languages": ["C/C++ (primary)", "Python", "Java", "JavaScript", "Embedded C", "MATLAB", "Assembly", "SQL"],
+    "Embedded & Real-time": ["ESP32 / ESP32-S3", "STM32", "FreeRTOS", "LVGL", "Klipper firmware", "Raspberry Pi"],
+    "Hardware design & test": ["Altium Designer", "LTspice", "Oscilloscope", "Logic analyzer", "Soldering & rework"],
+    "Protocols": ["I2C", "SPI", "UART", "CAN", "Wi-Fi"],
+    "Robotics & simulation": ["PX4", "Gazebo", "ROS 2", "ns-3"],
+    "Software & tooling": ["Git/GitHub", "Docker", "CMake", "Linux", "SQLite", "REST APIs", "JWT auth", "OpenSSL"],
+    "Security & networking": ["Kali Linux", "TCP/IP", "Wireshark", "NMAP", "Aircrack-ng", "Cisco Packet Tracer"],
+    "ML": ["TensorFlow Lite Micro", "CNN training", "INT8 quantization"]
+  },
+  "leadership": [
+    {
+      "org": "HumanoidX, VIT",
+      "role": "Electronics Team Lead",
+      "start": "2025-04",
+      "end": "2026-04",
+      "highlights": [
+        "Led a 20+ member team designing electronics for an all-terrain rocker-bogie rover and a search-and-rescue hexapod.",
+        "Managed team organisation, resource allocation and collaborative decision-making to deliver milestones on time."
+      ],
+      "note": "Original resume gives 04/2025 - 04/2026. Some tailored resumes said 'Present'. Confirm the correct end date."
+    },
+    {
+      "org": "InnovDrive, VIT",
+      "role": "Electronics Team Lead",
+      "start": "2024-04",
+      "end": "2024-12",
+      "highlights": [
+        "Led a team of 5 developing electrical systems for motorbikes: embedded control, sensor integration and power management."
+      ]
+    },
+    {
+      "org": "Linux Club, VIT",
+      "role": "Member",
+      "start": "2023-10",
+      "end": "2024-10",
+      "highlights": ["Hands-on Linux and Kali Linux, networking and security concepts through labs, CTFs and workshops."]
+    }
+  ],
+  "achievements": [
+    { "title": "Winner, International NetSim Hackathon", "where": "Hosted at VIT", "note": "Add the year and organiser if Yuvan supplies them." },
+    { "title": "Student Coordination Team, Nokia Skillathon", "where": "VIT" },
+    { "title": "Attended 10 Years of Nokia Bangalore University Collaboration (NBUC)", "date": "2024-10-21", "where": "Nokia Bangalore", "note": "Saw demos on network slicing and object sensing using 6G communication signals; sparked interest in telecommunications." }
+  ]
+}
