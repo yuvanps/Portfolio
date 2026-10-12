@@ -1,0 +1,18 @@
+---
+import { person } from '../lib/portfolio';
+import Section from './Section.astro';
+import SocialLinks from './SocialLinks.astro';
+---
+
+<Section id="contact" marker="07 / Get in touch" title="Contact">
+  <div class="contact">
+    {
+      person.email && (
+        <a class="contact__email" href={`mailto:${person.email}`}>
+          {person.email}
+        </a>
+      )
+    }
+    <SocialLinks email={false} />
+  </div>
+</Section>

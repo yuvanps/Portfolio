@@ -1,0 +1,33 @@
+---
+import { getCollection, render } from 'astro:content';
+import ProjectLayout from '../../layouts/ProjectLayout.astro';
+import { projects } from '../../lib/portfolio';
+
+export async function getStaticPaths() {
+  // Write-ups are optional: a project without src/content/projects/<slug>.md
+  // still gets a page built from its JSON entry.
+  const writeUps = await getCollection('projects', ({ data }) => !data.draft);
+  return projects.map((project, i) => ({
+    params: { slug: project.slug },
+    props: {
+      project,
+      writeUp: writeUps.find((entry) => entry.id === project.slug),
+      prev: projects[i - 1],
+      next: projects[i + 1],
+    },
+  }));
+}
+
+const { project, writeUp, prev, next } = Astro.props;
+const Content = writeUp ? (await render(writeUp)).Content : undefined;
+---
+
+<ProjectLayout
+  project={project}
+  description={writeUp?.data.summary}
+  hasWriteUp={Content !== undefined}
+  prev={prev}
+  next={next}
+>
+  {Content && <Content />}
+</ProjectLayout>

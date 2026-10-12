@@ -1,0 +1,32 @@
+---
+import { education } from '../lib/portfolio';
+import Section from './Section.astro';
+---
+
+{
+  education.length > 0 && (
+    <Section id="education" marker="06 / Study" title="Education">
+      <div class="entry-list">
+        {education.map((school) => (
+          <article class="panel entry">
+            <div class="entry__head">
+              <h3 class="entry__title">{school.institution}</h3>
+              {school.period && <p class="entry__period">{school.period}</p>}
+            </div>
+            <p>
+              {school.degree}
+              {school.cgpa && <span class="muted"> · CGPA {school.cgpa}</span>}
+            </p>
+            {school.coursework.length > 0 && (
+              <ul class="tags" aria-label="Coursework">
+                {school.coursework.map((course) => (
+                  <li class="tag">{course}</li>
+                ))}
+              </ul>
+            )}
+          </article>
+        ))}
+      </div>
+    </Section>
+  )
+}

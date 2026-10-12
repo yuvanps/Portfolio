@@ -6,7 +6,7 @@ B.Tech ECE student at VIT (2023-2027, CGPA 8.74) working across embedded firmwar
 
 - Location: Chennai, India
 - Email: yuvanp2005@gmail.com
-- GitHub: https://github.com/awildweirdo (also https://github.com/yuvanps)
+- GitHub: https://github.com/yuvanps
 - LinkedIn: https://www.linkedin.com/in/yuvan-pramesh
 - Phone: kept private, not for the website
 - Interests: Embedded systems, C/C++ systems programming, Cybersecurity, Telecommunications / 6G, Robotics, PCB design, TinyML
@@ -24,6 +24,8 @@ Coursework: Computer Communications & Networks, Advanced Cloud Computing, Struct
 - Customized the open-source Klipper firmware to support 5+ bioprinting-specific functions, integrating 4 hardware components and reducing manual control requirements by 25%.
 - Performed system integration, testing, calibration and troubleshooting across 50+ test cycles, achieving 80% system reliability.
 
+Related project: Pneumatic Bio 3D Printer
+
 ## Projects
 
 ### Ticket Booking System (featured)
@@ -40,6 +42,8 @@ Full-stack ticket booking platform written in C++17 with a REST API and SQLite d
 - Containerised with Docker and deployed to Render; 4 automated test suites.
 
 Link (repo): https://github.com/yuvanps/TicketBookingSystem
+
+Link (demo): https://ticketbookingsystem-h2to.onrender.com/
 
 Repo visibility: check before publishing
 
@@ -77,7 +81,7 @@ Tech: Altium Designer, ESP32-S3, FTDI, USB-C
 - Differential-pair routing and power distribution tuned for signal integrity and EMI performance.
 - Multilayer ground and power plane management with stitching vias and impedance-controlled traces.
 
-Link (repo): https://github.com/awildweirdo/Custom_ESP32-S3_CarrierBoard_PCB
+Link (repo): https://github.com/yuvanps/Custom_ESP32-S3_CarrierBoard_PCB
 
 Repo visibility: public
 
@@ -96,11 +100,18 @@ Compact autonomous drone concept for indoor factory surveillance and patrol.
 ### TinyML Keyword Spotting
 Personal project
 
-Tech: ESP32-S3, TensorFlow Lite Micro, CNN, INT8 quantization
+Tech: Python, TensorFlow, Keras, TensorFlow Lite, CNN, Log-mel spectrograms
 
-CNN trained and INT8-quantized for on-device keyword spotting on an ESP32-S3.
+Keyword spotting model trained on the Speech Commands dataset: a tiny CNN over log-mel spectrograms, exported to TensorFlow Lite.
 
-OPEN QUESTION: Repo not visible in the GitHub listing provided. Ask Yuvan for details/link before writing more than the one-line description.
+- Classifies one-second 16 kHz audio clips into six classes: yes, no, stop, go, unknown and silence.
+- Uses the dataset's own validation and testing lists to keep the split stable; non-target words form the unknown class and background-noise clips form silence.
+- Exports both a Keras model and a TensorFlow Lite model so it can be used on small devices later.
+- Scripts for training, single-file prediction and live microphone classification on Linux.
+
+Link (repo): https://github.com/yuvanps/KewordSpottingTinyML
+
+Repo visibility: public
 
 ### Cellular Network Simulation & Analysis
 Academic / personal
@@ -122,7 +133,7 @@ Pneumatic bio-printer dispensing calcium-based bio-ink through a solenoid valve 
 - Full Klipper config with a dummy extruder (resistor workaround) and TRAVEL / PRINT_LINE macros for solenoid logic.
 - Planned calibration pipeline ahead of first tissue prints.
 
-OPEN QUESTION: Closely related to the Towardz internship work. Confirm with Yuvan whether to present as a separate project or merge into the internship entry.
+Related experience: Towardz Solutions internship.
 
 ### ChocoGenie
 Personal project
@@ -142,7 +153,7 @@ Tech: MATLAB
 
 MATLAB implementation of the spectral subtraction noise-reduction method.
 
-Link (repo): https://github.com/awildweirdo/Spectral_subtraction_matlab
+Link (repo): https://github.com/yuvanps/Spectral_subtraction_matlab
 
 Repo visibility: public
 
@@ -153,7 +164,7 @@ Tech: ESP32, Python, Harmonic analysis
 
 Detects generator issues using harmonic analysis on ESP32 data.
 
-Link (repo): https://github.com/awildweirdo/Generator-issue-detector_ESp32_harmonic-analysis
+Link (repo): https://github.com/yuvanps/Generator-issue-detector_ESp32_harmonic-analysis
 
 Repo visibility: public
 
@@ -164,7 +175,7 @@ Tech: Arduino, C++
 
 FM radio built on Arduino.
 
-Link (repo): https://github.com/awildweirdo/Arduino_FM_Radio
+Link (repo): https://github.com/yuvanps/Arduino_FM_Radio
 
 Repo visibility: public
 
@@ -175,7 +186,7 @@ Tech: Python
 
 Python bot project (Apache 2.0 licensed).
 
-Link (repo): https://github.com/awildweirdo/my_bot
+Link (repo): https://github.com/yuvanps/my_bot
 
 Repo visibility: public
 
@@ -196,8 +207,6 @@ Repo visibility: public
 - Led a 20+ member team designing electronics for an all-terrain rocker-bogie rover and a search-and-rescue hexapod.
 - Managed team organisation, resource allocation and collaborative decision-making to deliver milestones on time.
 
-OPEN QUESTION: Original resume gives 04/2025 - 04/2026. Some tailored resumes said 'Present'. Confirm the correct end date.
-
 **InnovDrive, VIT**, Electronics Team Lead (2024-04 to 2024-12)
 - Led a team of 5 developing electrical systems for motorbikes: embedded control, sensor integration and power management.
 
@@ -206,6 +215,6 @@ OPEN QUESTION: Original resume gives 04/2025 - 04/2026. Some tailored resumes sa
 
 ## Achievements
 
-- **Winner, International NetSim Hackathon** (Hosted at VIT). Add the year and organiser if Yuvan supplies them.
+- **Winner, International NetSim Hackathon** (Conducted by VIT Chennai, 2025-10-31)
 - **Student Coordination Team, Nokia Skillathon** (VIT)
-- **Attended 10 Years of Nokia Bangalore University Collaboration (NBUC)** (Nokia Bangalore, 2024-10-21). Saw demos on network slicing and object sensing using 6G communication signals; sparked interest in telecommunications.
+- **Attended 10 Years of Nokia Bangalore University Collaboration (NBUC)** (Nokia Bangalore, 2024-10-21). Saw demos on network slicing and object sensing using 6G communication signals.

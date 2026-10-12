@@ -1,0 +1,39 @@
+---
+import { person } from '../lib/portfolio';
+import SocialLinks from './SocialLinks.astro';
+---
+
+<section class="hero" aria-labelledby="hero-name">
+  <div class:list={['container', person.portrait && 'hero__inner--portrait']}>
+    {
+      // Optional: rendered only when the portrait file exists (see docs/IMAGES.md).
+      person.portrait && (
+        <div class="hero__portrait">
+          <img
+            src={person.portrait.src}
+            alt={person.portrait.alt}
+            width={person.portrait.width}
+            height={person.portrait.height}
+            decoding="async"
+          />
+        </div>
+      )
+    }
+    <div class="hero__text">
+      {person.location && <p class="eyebrow">{person.location}</p>}
+      <h1 class="hero__name" id="hero-name">{person.name}</h1>
+      <p class="hero__headline">{person.headline}</p>
+      <p class="hero__summary">{person.summary}</p>
+      <SocialLinks />
+      {
+        person.interests.length > 0 && (
+          <ul class="tags hero__interests" aria-label="Interests">
+            {person.interests.map((interest) => (
+              <li class="tag">{interest}</li>
+            ))}
+          </ul>
+        )
+      }
+    </div>
+  </div>
+</section>
