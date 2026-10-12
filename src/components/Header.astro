@@ -1,0 +1,31 @@
+---
+import { person } from '../lib/portfolio';
+
+const path = Astro.url.pathname;
+const nav = [
+  { href: '/projects/', label: 'Projects', current: path.startsWith('/projects') },
+  { href: '/#experience', label: 'Experience' },
+  { href: '/#skills', label: 'Skills' },
+  { href: '/#education', label: 'Education' },
+  { href: '/#contact', label: 'Contact' },
+];
+---
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__brand" href="/" aria-current={path === '/' ? 'page' : undefined}>{person.name}</a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        {
+          nav.map((item) => (
+            <li>
+              <a href={item.href} aria-current={item.current ? 'page' : undefined}>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>

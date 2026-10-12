@@ -1,0 +1,20 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+.astro/
+
+# local environment and logs
+.env
+.env.*
+!.env.example
+npm-debug.log*
+
+# editor / OS
+.DS_Store
+.vscode/
+.idea/
+
+# untouched source images kept locally; the converted files live in public/images/
+image-originals/

@@ -1,0 +1,53 @@
+---
+import type { Project } from '../lib/portfolio';
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+const facts = [
+  { label: 'Type', value: project.type },
+  { label: 'Period', value: project.period },
+  { label: 'Categories', value: project.categories.join(', ') },
+].filter((fact) => fact.value);
+---
+
+<aside class="project-aside panel" aria-label="Project facts">
+  <dl class="facts">
+    {
+      facts.map((fact) => (
+        <div>
+          <dt>{fact.label}</dt>
+          <dd>{fact.value}</dd>
+        </div>
+      ))
+    }
+    {
+      project.tech.length > 0 && (
+        <div>
+          <dt>Technologies</dt>
+          <dd>
+            <ul class="tags">
+              {project.tech.map((t) => (
+                <li class="tag">{t}</li>
+              ))}
+            </ul>
+          </dd>
+        </div>
+      )
+    }
+    {
+      project.relatedExperience.length > 0 && (
+        <div>
+          <dt>Related experience</dt>
+          {project.relatedExperience.map((e) => (
+            <dd>
+              <a href="/#experience">{[e.company, e.role].filter(Boolean).join(' · ')}</a>
+            </dd>
+          ))}
+        </div>
+      )
+    }
+  </dl>
+</aside>

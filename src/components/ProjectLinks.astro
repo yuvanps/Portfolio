@@ -1,0 +1,39 @@
+---
+import type { Project } from '../lib/portfolio';
+
+interface Props {
+  project: Project;
+  /** Adds a link to the project's own page (used on cards). */
+  details?: boolean;
+  small?: boolean;
+}
+
+const { project, details = false, small = false } = Astro.props;
+const size = small ? ' btn--small' : '';
+const hasAny = details || project.links.demo || project.links.repo;
+---
+
+{
+  hasAny && (
+    <div class="btn-row">
+      {project.links.demo && (
+        <a class={`btn btn--primary${size}`} href={project.links.demo} rel="noopener noreferrer">
+          Live demo <span aria-hidden="true">↗</span>
+          <span class="visually-hidden">of {project.title}</span>
+        </a>
+      )}
+      {project.links.repo && (
+        <a class={`btn${size}`} href={project.links.repo} rel="noopener noreferrer">
+          Repository <span aria-hidden="true">↗</span>
+          <span class="visually-hidden">for {project.title}</span>
+        </a>
+      )}
+      {details && (
+        <a class={`btn${size}`} href={`/projects/${project.slug}/`}>
+          Details <span aria-hidden="true">→</span>
+          <span class="visually-hidden">about {project.title}</span>
+        </a>
+      )}
+    </div>
+  )
+}

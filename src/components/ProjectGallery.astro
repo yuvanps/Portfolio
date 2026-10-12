@@ -1,0 +1,29 @@
+---
+import type { ProjectImage } from '../lib/portfolio';
+
+interface Props {
+  images: ProjectImage[];
+}
+
+const { images } = Astro.props;
+---
+
+{
+  images.length > 0 && (
+    <section aria-labelledby="gallery-title">
+      <h2 class="subheading" id="gallery-title">
+        Gallery
+      </h2>
+      <div class="gallery">
+        {images.map((img) => (
+          <figure>
+            <a href={img.src}>
+              <img src={img.src} alt={img.alt} width={img.width} height={img.height} loading="lazy" decoding="async" />
+            </a>
+            {img.caption && <figcaption>{img.caption}</figcaption>}
+          </figure>
+        ))}
+      </div>
+    </section>
+  )
+}
