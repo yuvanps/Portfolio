@@ -1,0 +1,17 @@
+---
+import { featuredProjects } from '../lib/portfolio';
+import Section from './Section.astro';
+import ProjectCard from './ProjectCard.astro';
+---
+
+{
+  featuredProjects.length > 0 && (
+    <Section id="featured" marker="01 / Selected work" title="Featured projects">
+      <div class="card-grid">
+        {featuredProjects.map((project) => (
+          <ProjectCard project={project} visual="always" maxHighlights={3} loading="eager" />
+        ))}
+      </div>
+    </Section>
+  )
+}

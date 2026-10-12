@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectList from '../../components/ProjectList.astro';
+import { projects, categories, person } from '../../lib/portfolio';
+---
+
+<BaseLayout title="Projects" description={`All ${projects.length} projects by ${person.name}.`}>
+  <div class="container project-page">
+    <header class="project-header">
+      <p class="eyebrow">Archive</p>
+      <h1>Projects</h1>
+      <p class="project-header__lead">
+        {projects.length} projects across {categories.join(', ')}.
+      </p>
+    </header>
+    <div class="project-body" style="display:block">
+      <ProjectList projects={projects} filters={categories} maxHighlights={2} heading="h2" />
+    </div>
+  </div>
+</BaseLayout>

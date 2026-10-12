@@ -1,0 +1,69 @@
+---
+import type { Project } from '../lib/portfolio';
+import ProjectVisual from './ProjectVisual.astro';
+import ProjectLinks from './ProjectLinks.astro';
+
+interface Props {
+  project: Project;
+  /** "always": image or designed fallback. "auto": only a real image. "never": text only. */
+  visual?: 'always' | 'auto' | 'never';
+  /** Projects with no highlights simply render as compact cards. */
+  maxHighlights?: number;
+  maxTech?: number;
+  heading?: 'h2' | 'h3';
+  loading?: 'lazy' | 'eager';
+}
+
+const {
+  project,
+  visual = 'auto',
+  maxHighlights = 0,
+  maxTech = 6,
+  heading: Heading = 'h3',
+  loading = 'lazy',
+} = Astro.props;
+
+const showVisual = visual === 'always' || (visual === 'auto' && project.image !== undefined);
+const highlights = project.highlights.slice(0, maxHighlights);
+const tech = project.tech.slice(0, maxTech);
+const compact = !showVisual && highlights.length === 0;
+---
+
+<article
+  class:list={['project-card', compact && 'project-card--compact']}
+  data-project-card
+  data-categories={project.categories.join('|')}
+>
+  {showVisual && <ProjectVisual project={project} loading={loading} />}
+  <div class="project-card__body">
+    <p class="eyebrow project-card__meta">
+      <span>{project.categories.join(' / ')}</span>
+      {!showVisual && <span class="accent" aria-hidden="true">{project.index}</span>}
+    </p>
+    <Heading class="project-card__title">
+      <a href={`/projects/${project.slug}/`}>{project.title}</a>
+    </Heading>
+    <p class="project-card__desc">{project.description}</p>
+    {
+      highlights.length > 0 && (
+        <ul class="bullets">
+          {highlights.map((h) => (
+            <li>{h}</li>
+          ))}
+        </ul>
+      )
+    }
+    {
+      tech.length > 0 && (
+        <ul class="tags" aria-label="Technologies">
+          {tech.map((t) => (
+            <li class="tag">{t}</li>
+          ))}
+        </ul>
+      )
+    }
+    <div class="project-card__links">
+      <ProjectLinks project={project} details small />
+    </div>
+  </div>
+</article>

@@ -1,0 +1,41 @@
+---
+import { person, hasResume, RESUME_PATH } from '../lib/portfolio';
+
+interface Props {
+  /** Show the email button (the contact section prints the address itself). */
+  email?: boolean;
+}
+
+const { email = true } = Astro.props;
+---
+
+<div class="btn-row">
+  {
+    email && person.email && (
+      <a class="btn btn--primary" href={`mailto:${person.email}`}>
+        Email
+      </a>
+    )
+  }
+  {
+    person.links.github && (
+      <a class="btn" href={person.links.github} rel="me noopener">
+        GitHub
+      </a>
+    )
+  }
+  {
+    person.links.linkedin && (
+      <a class="btn" href={person.links.linkedin} rel="me noopener">
+        LinkedIn
+      </a>
+    )
+  }
+  {
+    hasResume && (
+      <a class="btn" href={RESUME_PATH} download>
+        Download resume
+      </a>
+    )
+  }
+</div>

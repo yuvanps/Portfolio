@@ -1,0 +1,34 @@
+---
+import type { Project } from '../lib/portfolio';
+
+interface Props {
+  project: Project;
+  /** Use "eager" only for images visible on first paint. */
+  loading?: 'lazy' | 'eager';
+}
+
+const { project, loading = 'lazy' } = Astro.props;
+---
+
+{
+  project.image ? (
+    <div class="project-visual">
+      <img
+        src={project.image.src}
+        alt={project.image.alt}
+        width={project.image.width}
+        height={project.image.height}
+        style={project.image.position ? `object-position: ${project.image.position}` : undefined}
+        loading={loading}
+        decoding="async"
+      />
+    </div>
+  ) : (
+    // Designed fallback for projects without a photo or render yet. Purely decorative.
+    <div class="project-visual project-visual--fallback" aria-hidden="true">
+      {project.categories[0] && <span class="project-visual__label">{project.categories[0]}</span>}
+      <span class="project-visual__mark" />
+      <span class="project-visual__index">{project.index}</span>
+    </div>
+  )
+}

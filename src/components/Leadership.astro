@@ -1,0 +1,52 @@
+---
+import { leadership, achievements } from '../lib/portfolio';
+import Section from './Section.astro';
+---
+
+{
+  (leadership.length > 0 || achievements.length > 0) && (
+    <Section id="leadership" marker="05 / Beyond coursework" title="Leadership and achievements">
+      <div class="two-col">
+        {leadership.length > 0 && (
+          <div>
+            <h3 class="subheading">Leadership</h3>
+            <div class="entry-list">
+              {leadership.map((item) => (
+                <article class="panel entry">
+                  <div class="entry__head">
+                    <h4 class="entry__title">
+                      {item.org}
+                      {item.role && <span class="entry__role"> · {item.role}</span>}
+                    </h4>
+                    {item.period && <p class="entry__period">{item.period}</p>}
+                  </div>
+                  {item.highlights.length > 0 && (
+                    <ul class="bullets">
+                      {item.highlights.map((h) => (
+                        <li>{h}</li>
+                      ))}
+                    </ul>
+                  )}
+                </article>
+              ))}
+            </div>
+          </div>
+        )}
+        {achievements.length > 0 && (
+          <div>
+            <h3 class="subheading">Achievements</h3>
+            <ul class="achievement-list">
+              {achievements.map((a) => (
+                <li>
+                  <strong>{a.title}</strong>
+                  <span>{[a.where, a.date].filter(Boolean).join(' · ')}</span>
+                  {a.description && <p>{a.description}</p>}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    </Section>
+  )
+}

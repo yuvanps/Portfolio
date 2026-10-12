@@ -1,0 +1,91 @@
+---
+import type { Project } from '../lib/portfolio';
+import BaseLayout from './BaseLayout.astro';
+import ProjectDetails from '../components/ProjectDetails.astro';
+import ProjectGallery from '../components/ProjectGallery.astro';
+import ProjectLinks from '../components/ProjectLinks.astro';
+
+interface Props {
+  project: Project;
+  description?: string;
+  /** True when the default slot carries a Markdown write-up. */
+  hasWriteUp?: boolean;
+  prev?: Project;
+  next?: Project;
+}
+
+const { project, description, hasWriteUp = false, prev, next } = Astro.props;
+---
+
+<BaseLayout title={project.title} description={description ?? project.description} ogType="article">
+  <article class="container project-page">
+    <a class="back-link" href="/projects/"><span aria-hidden="true">←</span> All projects</a>
+
+    <header class="project-header">
+      <p class="eyebrow">Project {project.index}</p>
+      <h1>{project.title}</h1>
+      <p class="project-header__lead">{project.description}</p>
+      <ProjectLinks project={project} />
+    </header>
+
+    <div class="project-body">
+      <div class="project-main">
+        {
+          project.image && (
+            <figure class="project-cover">
+              <img
+                src={project.image.src}
+                alt={project.image.alt}
+                width={project.image.width}
+                height={project.image.height}
+                decoding="async"
+              />
+            </figure>
+          )
+        }
+        {
+          project.highlights.length > 0 && (
+            <section aria-labelledby="highlights-title">
+              <h2 class="subheading" id="highlights-title">
+                Highlights
+              </h2>
+              <ul class="bullets">
+                {project.highlights.map((h) => (
+                  <li>{h}</li>
+                ))}
+              </ul>
+            </section>
+          )
+        }
+        {
+          hasWriteUp && (
+            <div class="prose">
+              <slot />
+            </div>
+          )
+        }
+        <ProjectGallery images={project.gallery} />
+      </div>
+      <ProjectDetails project={project} />
+    </div>
+
+    {
+      (prev || next) && (
+        <nav class="project-pager" aria-label="More projects">
+          {prev && (
+            <a href={`/projects/${prev.slug}/`}>
+              <span class="eyebrow">← Previous</span>
+              <strong>{prev.title}</strong>
+            </a>
+          )}
+          {next && (
+            <a class="next" href={`/projects/${next.slug}/`}>
+              <span class="eyebrow">Next →</span>
+              <strong>{next.title}</strong>
+            </a>
+          )}
+        </nav>
+      )
+    }
+  </article>
+</BaseLayout>

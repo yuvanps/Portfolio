@@ -1,0 +1,23 @@
+---
+import { skills } from '../lib/portfolio';
+import Section from './Section.astro';
+---
+
+{
+  skills.length > 0 && (
+    <Section id="skills" marker="04 / Toolbox" title="Skills">
+      <div class="skills-grid">
+        {skills.map(({ group, items }) => (
+          <div class="panel">
+            <h3>{group}</h3>
+            <ul class="tags">
+              {items.map((item) => (
+                <li class="tag">{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </Section>
+  )
+}
