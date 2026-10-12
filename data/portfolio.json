@@ -4,10 +4,11 @@
     "handle": "awildweirdo",
     "location": "Chennai, India",
     "email": "yuvanp2005@gmail.com",
-    "phone": "+91 9791161024",
     "phonePublic": false,
+    "portrait": "/images/profile.webp",
+    "portraitAlt": "Portrait of Yuvan Pramesh Selvarangam",
     "links": {
-      "github": "https://github.com/awildweirdo",
+      "github": "https://github.com/yuvanps",
       "githubSecondary": "https://github.com/yuvanps",
       "linkedin": "https://www.linkedin.com/in/yuvan-pramesh"
     },
@@ -43,12 +44,23 @@
         "Customized the open-source Klipper firmware to support 5+ bioprinting-specific functions, integrating 4 hardware components and reducing manual control requirements by 25%.",
         "Performed system integration, testing, calibration and troubleshooting across 50+ test cycles, achieving 80% system reliability."
       ],
-      "tech": ["Klipper", "Linux", "Embedded control", "Pneumatics"]
+      "tech": ["Klipper", "Linux", "Embedded control", "Pneumatics"],
+      "relatedProjects": ["bio-3d-printer"]
     }
   ],
   "projects": [
     {
       "slug": "ticket-booking-system",
+      "image": "/images/projects/ticket-booking-system/ticket-booking-seat-map.webp",
+      "imageAlt": "Seat map for the Coldplay Live event in the booking app: a 6 by 10 grid of available seats with a legend for available, selected, held and booked, beside the event details.",
+      "gallery": [
+        {
+          "src": "/images/projects/ticket-booking-system/ticket-booking-events-home.webp",
+          "alt": "Events page of the booking app listing two featured events, Coldplay Live and Dune: Part Two, with their posters.",
+          "caption": "Events page with the two seeded demo events."
+        }
+      ],
+      "categories": ["Software", "C/C++"],
       "title": "Ticket Booking System",
       "type": "Personal project",
       "featured": true,
@@ -61,11 +73,15 @@
         "10-table relational schema; atomic transactions (SQLite WAL mode) to prevent double-booking race conditions.",
         "Containerised with Docker and deployed to Render; 4 automated test suites."
       ],
-      "links": { "repo": "https://github.com/yuvanps/TicketBookingSystem" },
+      "links": {
+        "repo": "https://github.com/yuvanps/TicketBookingSystem",
+        "demo": "https://ticketbookingsystem-h2to.onrender.com/"
+      },
       "repoVisibility": "check before publishing"
     },
     {
       "slug": "nexcook-meal-maker",
+      "categories": ["Embedded", "PCB"],
       "title": "Fully Automated Meal Maker (Nexcook)",
       "type": "Client consultancy project for Mitatronics, Mumbai",
       "start": "2025-03",
@@ -84,6 +100,26 @@
     },
     {
       "slug": "stepper-driver-pcb",
+      "image": "/images/projects/stepper-driver-pcb/stepper-driver-pcb-3d-render.webp",
+      "imageAlt": "3D render of the stepper driver board: four upright driver ICs, red DIP switches for each channel, a blue +5V/+12V/GND screw terminal and connectors labelled Grinder Base, Onion, Tomato and Chopper.",
+      "gallery": [
+        {
+          "src": "/images/projects/stepper-driver-pcb/stepper-driver-pcb-layout-2d.webp",
+          "alt": "PCB layout view with top-layer copper in red and bottom-layer copper in blue, showing four driver channels with connectors labelled Grinder Base, Onion, Tomato and Chopper.",
+          "caption": "Board layout, top and bottom copper."
+        },
+        {
+          "src": "/images/projects/stepper-driver-pcb/stepper-driver-schematic-tb6600-channel.webp",
+          "alt": "Schematic sheet titled TB6600 Stepper Driver: optocoupler-isolated STEP and DIR inputs feeding a TB6600HG driver, with current-sense resistors, DIP-switch settings and a four-pin motor connector.",
+          "caption": "Schematic of one driver channel."
+        },
+        {
+          "src": "/images/projects/stepper-driver-pcb/stepper-driver-schematic-hopper-board-top-level.webp",
+          "alt": "Top-level schematic titled Hopper Board 1: STEP and DIR connectors for the Onion Dispenser, Tomato Dispenser, Chopper and Grinder Base driver sheets, two limit-switch connectors and the +5V/+12V power input.",
+          "caption": "Top-level schematic connecting the four driver channels."
+        }
+      ],
+      "categories": ["PCB"],
       "title": "4-Channel TB6600HG Stepper Driver PCB",
       "type": "Hardware design (part of the cooking automation system)",
       "tech": ["Altium Designer", "TB6600HG"],
@@ -96,6 +132,7 @@
     },
     {
       "slug": "esp32-s3-carrier-board",
+      "categories": ["PCB"],
       "title": "Custom ESP32-S3 Carrier Board",
       "type": "Personal hardware project",
       "featured": true,
@@ -105,11 +142,14 @@
         "Differential-pair routing and power distribution tuned for signal integrity and EMI performance.",
         "Multilayer ground and power plane management with stitching vias and impedance-controlled traces."
       ],
-      "links": { "repo": "https://github.com/awildweirdo/Custom_ESP32-S3_CarrierBoard_PCB" },
+      "links": { "repo": "https://github.com/yuvanps/Custom_ESP32-S3_CarrierBoard_PCB" },
       "repoVisibility": "public"
     },
     {
       "slug": "factory-patrol-drone",
+      "image": "/images/projects/factory-patrol-drone/factory-drone-simulation-gazebo-overview.webp",
+      "imageAlt": "Gazebo simulation of an indoor factory world with partition walls, shelving racks and crates, and three quadrotors in the air.",
+      "categories": ["Robotics", "Embedded"],
       "title": "Autonomous Factory Patrol Drone",
       "type": "Personal project",
       "start": "2026-07",
@@ -127,16 +167,23 @@
     },
     {
       "slug": "tinyml-keyword-spotting",
+      "categories": ["Software"],
       "title": "TinyML Keyword Spotting",
       "type": "Personal project",
-      "tech": ["ESP32-S3", "TensorFlow Lite Micro", "CNN", "INT8 quantization"],
-      "description": "CNN trained and INT8-quantized for on-device keyword spotting on an ESP32-S3.",
-      "highlights": [],
-      "links": {},
-      "note": "Repo not visible in the GitHub listing provided. Ask Yuvan for details/link before writing more than the one-line description."
+      "tech": ["Python", "TensorFlow", "Keras", "TensorFlow Lite", "CNN", "Log-mel spectrograms"],
+      "description": "Keyword spotting model trained on the Speech Commands dataset: a tiny CNN over log-mel spectrograms, exported to TensorFlow Lite.",
+      "highlights": [
+        "Classifies one-second 16 kHz audio clips into six classes: yes, no, stop, go, unknown and silence.",
+        "Uses the dataset's own validation and testing lists to keep the split stable; non-target words form the unknown class and background-noise clips form silence.",
+        "Exports both a Keras model and a TensorFlow Lite model so it can be used on small devices later.",
+        "Scripts for training, single-file prediction and live microphone classification on Linux."
+      ],
+      "links": { "repo": "https://github.com/yuvanps/KewordSpottingTinyML" },
+      "repoVisibility": "public"
     },
     {
       "slug": "cellular-network-simulation",
+      "categories": ["Signals & Networks"],
       "title": "Cellular Network Simulation & Analysis",
       "type": "Academic / personal",
       "tech": ["ns-3", "MATLAB"],
@@ -149,6 +196,7 @@
     },
     {
       "slug": "bio-3d-printer",
+      "categories": ["Embedded"],
       "title": "Pneumatic Bio 3D Printer",
       "type": "Hardware build",
       "tech": ["Klipper", "Raspberry Pi 3B+", "BTT SKR v1.4", "Solenoid valve"],
@@ -157,11 +205,11 @@
         "Full Klipper config with a dummy extruder (resistor workaround) and TRAVEL / PRINT_LINE macros for solenoid logic.",
         "Planned calibration pipeline ahead of first tissue prints."
       ],
-      "links": {},
-      "note": "Closely related to the Towardz internship work. Confirm with Yuvan whether to present as a separate project or merge into the internship entry."
+      "links": {}
     },
     {
       "slug": "chocogenie",
+      "categories": ["Embedded", "C/C++"],
       "title": "ChocoGenie",
       "type": "Personal project",
       "tech": ["C", "C++", "LVGL", "Raspberry Pi"],
@@ -174,42 +222,46 @@
     },
     {
       "slug": "spectral-subtraction-matlab",
+      "categories": ["Signals & Networks"],
       "title": "Spectral Subtraction (MATLAB)",
       "type": "Signal processing",
       "tech": ["MATLAB"],
       "description": "MATLAB implementation of the spectral subtraction noise-reduction method.",
       "highlights": [],
-      "links": { "repo": "https://github.com/awildweirdo/Spectral_subtraction_matlab" },
+      "links": { "repo": "https://github.com/yuvanps/Spectral_subtraction_matlab" },
       "repoVisibility": "public"
     },
     {
       "slug": "generator-issue-detector",
+      "categories": ["Embedded"],
       "title": "Generator Issue Detector (ESP32 + Harmonic Analysis)",
       "type": "Personal project",
       "tech": ["ESP32", "Python", "Harmonic analysis"],
       "description": "Detects generator issues using harmonic analysis on ESP32 data.",
       "highlights": [],
-      "links": { "repo": "https://github.com/awildweirdo/Generator-issue-detector_ESp32_harmonic-analysis" },
+      "links": { "repo": "https://github.com/yuvanps/Generator-issue-detector_ESp32_harmonic-analysis" },
       "repoVisibility": "public"
     },
     {
       "slug": "arduino-fm-radio",
+      "categories": ["Embedded", "C/C++"],
       "title": "Arduino FM Radio",
       "type": "Personal project",
       "tech": ["Arduino", "C++"],
       "description": "FM radio built on Arduino.",
       "highlights": [],
-      "links": { "repo": "https://github.com/awildweirdo/Arduino_FM_Radio" },
+      "links": { "repo": "https://github.com/yuvanps/Arduino_FM_Radio" },
       "repoVisibility": "public"
     },
     {
       "slug": "my-bot",
+      "categories": ["Software"],
       "title": "my_bot",
       "type": "Personal project",
       "tech": ["Python"],
       "description": "Python bot project (Apache 2.0 licensed).",
       "highlights": [],
-      "links": { "repo": "https://github.com/awildweirdo/my_bot" },
+      "links": { "repo": "https://github.com/yuvanps/my_bot" },
       "repoVisibility": "public"
     }
   ],
@@ -232,8 +284,7 @@
       "highlights": [
         "Led a 20+ member team designing electronics for an all-terrain rocker-bogie rover and a search-and-rescue hexapod.",
         "Managed team organisation, resource allocation and collaborative decision-making to deliver milestones on time."
-      ],
-      "note": "Original resume gives 04/2025 - 04/2026. Some tailored resumes said 'Present'. Confirm the correct end date."
+      ]
     },
     {
       "org": "InnovDrive, VIT",
@@ -253,8 +304,8 @@
     }
   ],
   "achievements": [
-    { "title": "Winner, International NetSim Hackathon", "where": "Hosted at VIT", "note": "Add the year and organiser if Yuvan supplies them." },
+    { "title": "Winner, International NetSim Hackathon", "date": "2025-10-31", "where": "Conducted by VIT Chennai" },
     { "title": "Student Coordination Team, Nokia Skillathon", "where": "VIT" },
-    { "title": "Attended 10 Years of Nokia Bangalore University Collaboration (NBUC)", "date": "2024-10-21", "where": "Nokia Bangalore", "note": "Saw demos on network slicing and object sensing using 6G communication signals; sparked interest in telecommunications." }
+    { "title": "Attended 10 Years of Nokia Bangalore University Collaboration (NBUC)", "date": "2024-10-21", "where": "Nokia Bangalore", "description": "Saw demos on network slicing and object sensing using 6G communication signals." }
   ]
 }
