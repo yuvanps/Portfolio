@@ -113,6 +113,19 @@ Link (repo): https://github.com/yuvanps/KewordSpottingTinyML
 
 Repo visibility: public
 
+### Parameterized 10-bit ALU
+Personal project
+
+Tech: Verilog-2001, Icarus Verilog, Yosys, Verilator, GTKWave, Make
+
+Registered, parameterized ALU in Verilog-2001 with full status flags, verified by simulation, formal equivalence and mutation testing, and synthesized with Yosys to compare a behavioral adder with a structural ripple-carry adder.
+
+- 23 operations on a 5-bit opcode with carry/borrow, signed overflow, zero, negative and illegal-opcode flags; one shared adder handles all arithmetic.
+- Self-checking testbench with an independent reference model that checks every output on every clock cycle; 0 failures across 10 simulation configurations.
+- Ripple-carry adder verified exhaustively (2,097,152 vectors) and formally proved equivalent to the behavioral adder with Yosys SAT induction.
+- Injected 11 realistic bugs into the RTL; the testbench detected all 11.
+- Synthesis showed the ripple-carry adder uses 24% fewer gates but has 75% more logic depth, and cannot use the iCE40's dedicated carry chain.
+
 ### Cellular Network Simulation & Analysis
 Academic / personal
 

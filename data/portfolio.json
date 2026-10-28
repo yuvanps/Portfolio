@@ -182,6 +182,46 @@
       "repoVisibility": "public"
     },
     {
+      "slug": "parameterized-alu",
+      "image": "/images/projects/parameterized-alu/alu-gtkwave-interface-cover.webp",
+      "imageAlt": "GTKWave view of the ALU testbench: clock, reset and valid_in on top, then the registered result and flags, with the scoreboard's expected values underneath matching them cycle by cycle.",
+      "gallery": [
+        {
+          "src": "/images/projects/parameterized-alu/alu-gtkwave-interface-waveform.webp",
+          "alt": "GTKWave waveform of the first 265 ns of simulation showing reset, back-to-back transactions, idle gaps where result and flags hold, and a one-cycle illegal_op pulse.",
+          "caption": "Interface tests in GTKWave: valid_out follows valid_in by one cycle and outputs hold through idle gaps."
+        },
+        {
+          "src": "/images/projects/parameterized-alu/alu-yosys-full-adder-netlist.webp",
+          "alt": "Yosys gate-level netlist of the full adder: inputs a, b and cin feed two XNOR gates, an AND, an AND-NOT and an OR that produce sum and cout.",
+          "caption": "Full adder after Yosys synthesis: same function, but ABC rebuilt the XORs as XNORs."
+        },
+        {
+          "src": "/images/projects/parameterized-alu/alu-synthesis-adder-comparison.webp",
+          "alt": "Four bar charts comparing the behavioral and ripple-carry adders: 66 vs 50 gates, longest path 12 vs 21 cells, 10 LUT4 plus 10 SB_CARRY vs 23 LUT4 on iCE40, and 970 vs 949 gates for the whole ALU.",
+          "caption": "Synthesis comparison measured with Yosys 0.33."
+        },
+        {
+          "src": "/images/projects/parameterized-alu/alu-test-results-terminal.webp",
+          "alt": "Terminal output: all 10 simulations pass, the formal equivalence proof succeeds, and all 11 injected bugs are detected by the testbench.",
+          "caption": "Output of make test, make formal and make mutation."
+        }
+      ],
+      "categories": ["Digital Design"],
+      "title": "Parameterized 10-bit ALU",
+      "type": "Personal project",
+      "tech": ["Verilog-2001", "Icarus Verilog", "Yosys", "Verilator", "GTKWave", "Make"],
+      "description": "Registered, parameterized ALU in Verilog-2001 with full status flags, verified by simulation, formal equivalence and mutation testing, and synthesized with Yosys to compare a behavioral adder with a structural ripple-carry adder.",
+      "highlights": [
+        "23 operations on a 5-bit opcode with carry/borrow, signed overflow, zero, negative and illegal-opcode flags; one shared adder handles all arithmetic.",
+        "Self-checking testbench with an independent reference model that checks every output on every clock cycle; 0 failures across 10 simulation configurations.",
+        "Ripple-carry adder verified exhaustively (2,097,152 vectors) and formally proved equivalent to the behavioral adder with Yosys SAT induction.",
+        "Injected 11 realistic bugs into the RTL; the testbench detected all 11.",
+        "Synthesis showed the ripple-carry adder uses 24% fewer gates but has 75% more logic depth, and cannot use the iCE40's dedicated carry chain."
+      ],
+      "links": {}
+    },
+    {
       "slug": "cellular-network-simulation",
       "categories": ["Signals & Networks"],
       "title": "Cellular Network Simulation & Analysis",
